@@ -9,7 +9,7 @@ In detail it shows:
 
 - @EnableJpaAuditing and @LastModifiedDate show JPA auditing
 
-- @Version annotation will activate record versioning and optimistic locking. Instead of overwriting each other, one thread will produce an ObjectOptimisticLockingFailureException.
+- @Version annotation will activate record versioning and optimistic locking. Instead of overwriting each other, one thread will produce an ObjectOptimisticLockingFailureException. (!!! do NOT use the org.springframework import, but the javax.persistence import!)
 
 - lastly, the CustomerService shows how to lock single objects to avoid the aforementioned exception (makes sense only in a single server environment, or with sticky session)
  
