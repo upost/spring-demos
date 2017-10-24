@@ -5,9 +5,11 @@ import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 @Service
+@EnableJpaRepositories
 public class CustomerService {
 
 	@Autowired

@@ -1,8 +1,14 @@
 package de.uwepost;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.Index;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -15,7 +21,11 @@ public class Customer extends BaseEntity  {
     private String firstName;
     
     private String lastName;
+    
     private int cash;
+    
+    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="customer")
+    private List<Order> orders = new ArrayList<Order>();
     
     protected Customer() {}
 
@@ -47,6 +57,10 @@ public class Customer extends BaseEntity  {
 	
 	public void setCash(int cash) {
 		this.cash = cash;
+	}
+	
+	public List<Order> getOrders() {
+		return orders;
 	}
 	
 	
